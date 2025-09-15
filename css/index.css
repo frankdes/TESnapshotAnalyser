@@ -1,0 +1,109 @@
+﻿input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid black;
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flexrowwithgap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:5px;
+}
+.scflexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    border: 1px solid whitesmoke;
+}
+    .scflexrow span {
+        padding: 5px;
+    }
+header, footer {
+    background: whitesmoke;
+    padding: 5px
+}
+
+.flexrow div button {
+    margin: 15px;
+}
+
+.flexcol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gridrow {
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+}
+
+.comparegrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 800px;
+    justify-self: center;
+    gap: 10px;
+    background: whitesmoke;
+}
+
+.comparefieldset {
+    grid-column: 1 / 4;
+    background: lightgray;
+    margin: 10px
+}
+
+.gridcol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+label {
+    padding: 10px
+}
+
+section {
+    padding: 5px
+}
+
+.collapsediv {
+    visibility: collapse;
+}
+.showdiv {
+    visibility: visible;
+}
+.hidediv {
+    visibility: hidden;
+}
+.pageFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.pageButton {
+    background: whitesmoke;
+   
+}
+.pageButtonCurrent {
+    background: lightgray;
+   
+}
+.maxwidth200{
+    max-width:200px;
+}
+.minwidth100{
+    min-width:100px;
+}
+    
+input {
+    max-width: 200px;
+    max-height: 30px;
+}

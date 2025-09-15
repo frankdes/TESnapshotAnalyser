@@ -1,0 +1,108 @@
+{
+  "rawdataRequest": [
+    {
+      "id": "6dced376bd964eb9b441091059484e35",
+      "country": "mexico",
+      "group": "gdp",
+      "dataset": "Mexico gdp"
+    },
+    {
+      "id": "0a3093090685409fb2d3f1440249b1ca",
+      "country": "new zealand",
+      "group": "gdp",
+      "dataset": "NZ gdp"
+    }
+  ],
+  "compareObject": [
+    {
+      "id": "62be9fbe1c914174ba7cd9946bc3fa66",
+      "setInnitScript": true,
+      "innitScript": "\n    // if needed add global variables here\nvar keyvalues = undefined;\nvar keyvalueIndex = 0;\n    var innit62be9fbe1c914174ba7cd9946bc3fa66 = function(compareObj){\n        //if needed write a script to innitialise data. Do not change function name\n    keyvalues = new Object();\n    keyvalueIndex = 0;\n    }",
+      "title": "Mexico vs NZ",
+      "datasets": [
+        {
+          "id": "f0fd2694b64640a69eb25f24e6c844fa",
+          "parentid": "62be9fbe1c914174ba7cd9946bc3fa66",
+          "setFilter": true,
+          "filter": "var filterf0fd2694b64640a69eb25f24e6c844fa = function(ds){\n        // write a script to filter out rows and return the filtered dataset. Do not change function name\n   return ds.filter(gdp => gdp.Unit === 'percent' && gdp.LatestValue && gdp.LatestValue !== '');\n    }",
+          "fieldCount": 3,
+          "datasetid": "6dced376bd964eb9b441091059484e35",
+          "name": "Mexico",
+          "fields": [
+            {
+              "id": "ae6e322d3022454b85ee747c6e8d1379",
+              "parentid": "f0fd2694b64640a69eb25f24e6c844fa",
+              "setmethod": "2",
+              "index": 0,
+              "title": "Key",
+              "name": "Country",
+              "script": "var computefldae6e322d3022454b85ee747c6e8d1379 = function(row){\n            //write code to return field value. Do not change function name\n    let parts = row.LatestValueDate.split('-');\n    let key = GetAlphaNumeric(parts[0] + parts[1] + row.Category);\n    if (!keyvalues[key]) {\n        keyvalues[key] = ++keyvalueIndex;\n    }\n    return keyvalues[key];\n            }"
+            },
+            {
+              "id": "572a929b5eb145ccb4e7a878658658b2",
+              "parentid": "f0fd2694b64640a69eb25f24e6c844fa",
+              "setmethod": "2",
+              "index": 1,
+              "title": "Date Category",
+              "name": "Country",
+              "script": "var computefld572a929b5eb145ccb4e7a878658658b2 = function(row){\n            //write code to return field value. Do not change function name\n    let parts = row.LatestValueDate.split('-');\n    return parts[0] + parts[1] + ' ' + row.Category;\n            }"
+            },
+            {
+              "id": "86f5d9a4e18a4e259b7c799cbe0e45bd",
+              "parentid": "f0fd2694b64640a69eb25f24e6c844fa",
+              "setmethod": "1",
+              "index": 2,
+              "title": "GDP",
+              "name": "LatestValue"
+            }
+          ]
+        },
+        {
+          "id": "ac5e63456e9f4b7798d63adabee9db9b",
+          "parentid": "62be9fbe1c914174ba7cd9946bc3fa66",
+          "setFilter": true,
+          "filter": "var filterac5e63456e9f4b7798d63adabee9db9b = function(ds){\n        // write a script to filter out rows and return the filtered dataset. Do not change function name\n\n    return ds.filter(gdp => gdp.Unit === 'percent' && gdp.LatestValue && gdp.LatestValue !== '');\n    }",
+          "fieldCount": 3,
+          "datasetid": "0a3093090685409fb2d3f1440249b1ca",
+          "name": "NZ",
+          "fields": [
+            {
+              "id": "e88819255dee4c8686dce63f5c6e906c",
+              "parentid": "ac5e63456e9f4b7798d63adabee9db9b",
+              "setmethod": "2",
+              "index": 0,
+              "title": "Key",
+              "name": "Country",
+              "script": "var computeflde88819255dee4c8686dce63f5c6e906c = function(row){\n            //write code to return field value. Do not change function name\n    let parts = row.LatestValueDate.split('-');\n    let key = GetAlphaNumeric(parts[0] + parts[1] + row.Category);\n    if (!keyvalues[key]) {\n        keyvalues[key] = ++keyvalueIndex;\n    }\n    return keyvalues[key];\n            }"
+            },
+            {
+              "id": "f7f4dc69b65e4b55879766abe60fcb16",
+              "parentid": "ac5e63456e9f4b7798d63adabee9db9b",
+              "setmethod": "2",
+              "index": 1,
+              "title": "Date Category",
+              "name": "Country",
+              "script": "var computefldf7f4dc69b65e4b55879766abe60fcb16 = function(row){\n            //write code to return field value. Do not change function name\n    let parts = row.LatestValueDate.split('-');\n    return parts[0] + parts[1] + ' ' + row.Category;\n            }"
+            },
+            {
+              "id": "20f414fde5994e2092f355b7cf76653a",
+              "parentid": "ac5e63456e9f4b7798d63adabee9db9b",
+              "setmethod": "1",
+              "index": 2,
+              "title": "GDP",
+              "name": "LatestValue"
+            }
+          ]
+        }
+      ],
+      "runAfterScript": [
+        {
+          "id": "e7746f503276498794eaa465f0d44b28",
+          "parentid": "62be9fbe1c914174ba7cd9946bc3fa66",
+          "order": 0,
+          "script": "var runAfterScripte7746f503276498794eaa465f0d44b28 = function(compareobj,scriptElem)\n    {\n      //compareobj holds the comparison data set created. scriptElem is the html tag to which results need to be appended to view.\n      //Do not change function name\n let obj = new Object();\n obj.tagType = \"svg\";\n obj.attributes = new Object();\n obj.strokewidth = \"1\";\n var gid = GuidIDStr();\n var section = new Object();\n section.tagType = \"section\";\n section.attributes = [];\n var attr = new Object();\n attr.name = 'id';\n attr.value = 'section' + gid;\n section.attributes.push(attr);\n obj.elem = createHtmlElement(section);\n // mainElem = document.getElementById(\"main\");\n scriptElem.append(obj.elem);\n let svgroot = document.getElementById(\"svgroot\");\n if (svgroot) {\n     svgroot.remove();\n }\n obj.attributes.parentId = gid;\n obj.attributes.id = \"svgroot\";\n obj.attributes.version = \"2\";\n obj.attributes.stroke = \"black\";\n obj.attributes.width = \"100%\";\n obj.attributes.height = \"450\";\n\n createSVGTag(obj);\n createGtag();\n createXaxis(400, 40, 0, 266, [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"], 20);\n createYaxis(400, 40, 0, 0, getLegendsArray(-1, 2), -30);\n let items = compareobj.items;\n let maxicoData = [];\n let nzData = [];\n items.forEach(item => {\n     let maxObj = new Object();\n     maxObj.x = item.Mexicokey * 40;\n     maxObj.y = item[\"Mexicogdp\"] * 133;\n     maxObj.w = 10;\n     maxObj.xoffset = -10;\n     maxicoData.push(maxObj);\n     let nzObj = new Object();\n     nzObj.x = item.NZkey * 40;\n     nzObj.y = item[\"NZgdp\"] * 133;\n     nzObj.w = 10;\n     nzObj.xoffset = 0;\n     nzData.push(nzObj);\n });\n\n\n barChart(maxicoData, \"red\");\n barChart(nzData, \"blue\");\n let gtagElem = document.getElementById('gtag')\n gtagElem.setAttribute(\"transform\", \"translate(60,0)\");\n obj = new Object();\n obj.elem = document.getElementById('gtag');\n obj.tagType = \"rect\";\n obj.attributes = new Object();\n obj.attributes.x = 340;\n obj.attributes.y = 40;\n obj.attributes.width = 10;\n obj.attributes.height = 10;\n obj.attributes.fill = \"red\";\n createSVGTag(obj);\n createSVGText(380, 45, \"Mexico\", \"gtag\")\n obj = new Object();\n obj.elem = document.getElementById('gtag');\n obj.tagType = \"rect\";\n obj.attributes = new Object();\n obj.attributes.x = 340;\n obj.attributes.y = 25;\n obj.attributes.width = 10;\n obj.attributes.height = 10;\n obj.attributes.fill = \"blue\";\n createSVGTag(obj);\n createSVGText(380, 30, \"NZ\", \"gtag\")\n\n    }\n    "
+        }
+      ]
+    }
+  ]
+}

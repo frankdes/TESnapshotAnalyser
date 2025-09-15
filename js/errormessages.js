@@ -1,0 +1,11 @@
+var flowengine_not_specified = "flowengine not specified";
+var flowengine_method_not_found = "flowengine method not found";
+var startflowEngine_method_fail = "startflowengine method fail";
+var flowengines_load_fail = "flowengines load fail";
+var flows_load_fail = "flows load fail";
+var tf_undefined_or_tf_has_no_flowname = "tf undefined or tf has no flowname";
+var loadflow_method_fail = "loadflow method fail";
+var invalid_last_next = "invalid last next"
+var Invalid_next = "invalid next";
+var invalid_last = "invalid last";
+var invalid_start = "invalid start";
